@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+        .header {
+            background: #98FB98;
+            padding: 35px;
+            margin-bottom: 10px;
+            height: 50px;
+        }
+
+        .button{
+            width: 100px;
+            /*margin-left: auto;*/
+            /*margin-right: 0;*/
+            margin-top: 1px;
+            border-style: none;
+        }
+
+        .right {
+            margin-right: -100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <form method="get" action="/test" style="text-align: right;">
+            <input type="submit" value="Вход" class="button">
+        </form>
+        <form method="get" action="/test" style="text-align: right;">
+            <input type="submit" value="Регистрация" class="button">
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <td>id</td>
+            <td>serial number</td>
+            <td>discount</td>
+        </tr>
+        <tr th:each="productInstance : ${productInstances}">
+            <td th:text="${productInstance.id}"></td>
+            <td th:text="${productInstance.serialNumber}"></td>
+            <td th:text="${productInstance.discount}"></td>
+        </tr>
+    </table>
+</body>
+</html>
